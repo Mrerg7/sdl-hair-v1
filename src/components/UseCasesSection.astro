@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+
+const useCases = await getCollection('use-cases');
+const sorted = useCases.sort((a, b) => a.data.order - b.data.order);
+---
+
+<div class="bg-white border-y border-slate-100 py-16" id="perfect-for">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="max-w-xl mb-10">
+      <div class="uppercase tracking-[2px] text-xs font-semibold text-amber-700 mb-3">IDEAL USE CASES</div>
+      <h2 class="text-4xl tracking-tighter font-semibold">Built for serious players in hair &amp; beauty.</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      {sorted.map((useCase) => (
+        <div class="use-case-card group border border-slate-200 hover:border-amber-200 transition-colors rounded-3xl p-7 bg-white">
+          <div class="text-3xl mb-4">{useCase.data.icon}</div>
+          <div class="font-semibold text-xl tracking-tight">{useCase.data.title}</div>
+          <p class="mt-3 text-sm text-slate-600">{useCase.data.description}</p>
+          <div class="mt-5 text-xs font-medium text-amber-700 group-hover:underline">
+            {useCase.data.tag} →
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>

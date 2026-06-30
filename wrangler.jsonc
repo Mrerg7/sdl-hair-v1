@@ -1,0 +1,12 @@
+{
+	"compatibility_date": "2026-06-30",
+	"compatibility_flags": ["global_fetch_strictly_public"],
+	"name": "sdl-hair",
+	"assets": {
+		"directory": "./dist",
+		"binding": "ASSETS"
+	},
+	"observability": {
+		"enabled": true
+	}
+}

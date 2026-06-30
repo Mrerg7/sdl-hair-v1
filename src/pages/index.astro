@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import TrustBar from '../components/TrustBar.astro';
+import ValuePillars from '../components/ValuePillars.astro';
+import UseCasesSection from '../components/UseCasesSection.astro';
+import MarketSection from '../components/MarketSection.astro';
+import InquirySection from '../components/InquirySection.astro';
+import ClosingSection from '../components/ClosingSection.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout>
+  <Nav />
+  <Hero />
+  <TrustBar />
+  <ValuePillars />
+  <UseCasesSection />
+  <MarketSection />
+  <InquirySection />
+  <ClosingSection />
+  <Footer />
+
+  <!-- Success Modal -->
+  <div
+    id="success-modal"
+    onclick="if (event.target.id === 'success-modal') hideSuccessModal()"
+    class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-[70] flex items-center justify-center p-6"
+  >
+    <div onclick="event.stopImmediatePropagation()" class="bg-white rounded-3xl max-w-md w-full p-9 text-center">
+      <div class="mx-auto w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-6">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+      <h3 class="text-2xl font-semibold tracking-tight">Inquiry Received</h3>
+      <p class="mt-3 text-slate-600">
+        Thank you. Your message has been sent to our domain team. We will contact you within 24–48 hours to discuss
+        next steps.
+      </p>
+      <button
+        onclick="hideSuccessModal()"
+        class="mt-8 w-full py-3.5 border border-slate-200 hover:bg-slate-50 rounded-3xl font-semibold text-sm"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+
+  <script>
+    function submitInquiry(e) {
+      e.preventDefault();
+      const form = document.getElementById('inquiry-form');
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = 'PROCESSING...';
+      submitBtn.disabled = true;
+      setTimeout(() => {
+        form.reset();
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        document.getElementById('inquire').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(() => {
+          const modal = document.getElementById('success-modal');
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+        }, 650);
+      }, 1350);
+    }
+
+    function hideSuccessModal() {
+      const modal = document.getElementById('success-modal');
+      modal.classList.remove('flex');
+      modal.classList.add('hidden');
+    }
+  </script>
+</BaseLayout>

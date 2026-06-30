@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --color-amber-700: #B45309;
+  --color-amber-400: #F59E0B;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-800 antialiased;
+    font-family: var(--font-sans);
+  }
+
+  ::selection {
+    @apply bg-amber-200/60 text-slate-900;
+  }
+}
+
+@layer utilities {
+  .heading-serif {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    line-height: 1.05;
+  }
+
+  .premium-gradient {
+    background: linear-gradient(135deg, #0F172A 0%, #1E2937 100%);
+  }
+
+  .section-header {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .section-header:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 48px;
+    height: 2.5px;
+    background: linear-gradient(to right, #B45309, #9F3F1F);
+    border-radius: 3px;
+  }
+
+  .value-card {
+    transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1), 
+                box-shadow 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+  
+  .value-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.08), 0 8px 10px -6px rgb(0 0 0 / 0.08);
+  }
+
+  .use-case-card {
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .use-case-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgb(180 83 9 / 0.12), 0 8px 10px -6px rgb(180 83 9 / 0.08);
+  }
+
+  .luxury-shadow {
+    box-shadow: 0 25px 50px -12px rgb(15 23 42 / 0.15);
+  }
+
+  .domain-name {
+    font-size: clamp(3.5rem, 9vw, 7rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .nav-link {
+    transition: color 0.2s ease;
+  }
+  
+  .nav-link:hover {
+    color: #B45309;
+  }
+
+  .footer-cta-glow {
+    background: radial-gradient(ellipse at center, rgba(180, 83, 9, 0.12) 0%, transparent 70%);
+  }
+}

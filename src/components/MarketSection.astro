@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+
+const marketStats = await getCollection('market-stats');
+const stats = marketStats.sort((a, b) => a.data.order - b.data.order);
+---
+
+<div class="max-w-5xl mx-auto px-6 py-16">
+  <div class="grid md:grid-cols-12 gap-x-12 items-center">
+    <div class="md:col-span-7">
+      <div class="uppercase tracking-[2px] text-xs font-semibold text-amber-700 mb-3">THE MARKET</div>
+      <h2 class="text-4xl tracking-tighter font-semibold">Scottsdale is one of the strongest luxury beauty markets in America.</h2>
+      <p class="mt-5 text-slate-600">
+        With high median incomes, a large 55+ active adult population, year-round resort and golf visitors, and a
+        thriving fashion and lifestyle scene, demand for premium hair services, extensions, color, and products remains
+        consistently strong.
+      </p>
+
+      <div class="mt-8 grid grid-cols-3 gap-6 text-sm">
+        {stats.map((stat) => (
+          <div>
+            <div class="font-mono text-3xl font-semibold tracking-tighter text-slate-900">{stat.data.value}</div>
+            <div class="text-xs text-slate-500 mt-1">{stat.data.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="md:col-span-5 mt-10 md:mt-0">
+      <div class="bg-slate-900 text-white rounded-3xl p-8 text-sm">
+        <div class="uppercase tracking-widest text-xs text-white/50 mb-5">KEY ADVANTAGES OF sdl.hair</div>
+        <ul class="space-y-4 text-white/90">
+          <li class="flex gap-x-3"><span class="text-amber-400 mt-1">→</span> Short, premium, and easy to brand</li>
+          <li class="flex gap-x-3"><span class="text-amber-400 mt-1">→</span> Exact-match relevance for hair searches</li>
+          <li class="flex gap-x-3"><span class="text-amber-400 mt-1">→</span> Strong local Scottsdale prestige</li>
+          <li class="flex gap-x-3"><span class="text-amber-400 mt-1">→</span> Professional email (@sdl.hair) instantly elevates perception</li>
+          <li class="flex gap-x-3"><span class="text-amber-400 mt-1">→</span> Future-proofs your digital presence in beauty</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
