@@ -1,5 +1,0 @@
-# Cloudflare Pages _redirects
-# Root-relative source paths only (no absolute URLs)
-
-# Ensure clean domain
-/ / 301
