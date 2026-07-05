@@ -1,10 +1,11 @@
 ---
+import { SITE } from '../config/site';
 ---
 
 <header class="relative min-h-[620px] md:min-h-[680px] flex items-center overflow-hidden bg-slate-950">
-  <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-amber-950">
+  <div class="absolute inset-0 bg-cover bg-center" style={`background-image: url('${SITE.image}')`}>
     <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/70"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(180,83,9,0.08),transparent_50%)]"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-950/30"></div>
   </div>
 
   <div class="relative max-w-5xl mx-auto px-6 pt-8 md:pt-0">
