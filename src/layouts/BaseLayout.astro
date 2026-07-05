@@ -5,11 +5,13 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  robots?: string;
 }
 
 const {
   title = SITE.title,
   description = SITE.description,
+  robots = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, SITE.url);
@@ -151,7 +153,7 @@ const structuredData = {
     <meta name="description" content={description} />
     <meta name="keywords" content="sdl.hair, .hair domain for sale, premium hair domain, Scottsdale hair salon domain, luxury hair care domain, hair extensions brand domain, beauty domain Scottsdale" />
     <meta name="author" content="SDL Domains" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="robots" content={robots} />
     <link rel="canonical" href={canonicalURL.href} />
 
     <!-- Open Graph -->
