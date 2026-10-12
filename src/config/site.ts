@@ -1,13 +1,14 @@
 export const SITE = {
   name: 'sdl.hair',
-  title: 'sdl.hair • Premium Brandable Domain for Hair & Beauty',
+  title: 'sdl.hair | Premium .hair Domain for Sale | SDL Domains',
   description:
-    'sdl.hair — A short, memorable, industry-specific .hair domain perfect for a luxury hair salon, hair care brand, extensions, or beauty destination in Scottsdale, Arizona\'s premier style market. Serious inquiries only.',
+    'Buy sdl.hair, a premium short .hair domain for sale. Available now for $75,000 or best offer — ideal for luxury salons, hair care brands, extensions, and beauty businesses.',
   url: 'https://sdl.hair',
   locale: 'en_US',
   email: 'sales@desertrich.com',
   location: 'Scottsdale, Arizona',
-  lastUpdated: '2026-06-30',
+  askingPrice: 75000,
+  lastUpdated: '2026-10-12',
   googleSiteVerification: 'WnL-MiIVOLEB_QeHlh4L6InQVdJpaNG2eWiV5ujrfLs',
 } as const;
 

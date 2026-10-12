@@ -46,18 +46,18 @@ const structuredData = {
       '@id': `${SITE.url}/#domain`,
       name: 'sdl.hair Premium Domain',
       description:
-        'Premium short .hair domain at the intersection of luxury beauty and the Scottsdale market. Available for acquisition.',
+        'Premium short .hair domain for sale at the intersection of luxury beauty and the Scottsdale market. Available now for acquisition.',
       url: SITE.url,
       category: 'Domain Name',
       image: `${SITE.url}/assets/images/hero.jpg`,
       offers: {
         '@type': 'Offer',
         availability: 'https://schema.org/InStock',
-        price: '75000.00',
+        price: `${SITE.askingPrice}.00`,
         priceCurrency: 'USD',
         priceSpecification: {
           '@type': 'PriceSpecification',
-          price: '75000.00',
+          price: `${SITE.askingPrice}.00`,
           minPrice: 35000,
           maxPrice: 75000,
           priceCurrency: 'USD',
@@ -107,24 +107,6 @@ const structuredData = {
         '@type': 'Brand',
         name: SITE.name,
       },
-      review: [
-        {
-          '@type': 'Review',
-          author: { '@type': 'Organization', name: 'sdl.hair' },
-          reviewRating: {
-            '@type': 'Rating',
-            ratingValue: 5,
-            bestRating: 5,
-          },
-        },
-      ],
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: 5,
-        bestRating: 5,
-        reviewCount: 1,
-        ratingCount: 1,
-      },
     },
     {
       '@type': 'WebPage',
@@ -151,7 +133,7 @@ const structuredData = {
 
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="sdl.hair, .hair domain for sale, premium hair domain, Scottsdale hair salon domain, luxury hair care domain, hair extensions brand domain, beauty domain Scottsdale" />
+    <meta name="keywords" content="sdl.hair for sale, buy .hair domains, premium domain names, domain marketplace, hair salon domain, luxury hair care domain, hair extensions brand domain, investment domains" />
     <meta name="author" content="SDL Domains" />
     <meta name="robots" content={robots} />
     <link rel="canonical" href={canonicalURL.href} />
@@ -167,6 +149,8 @@ const structuredData = {
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="sdl.hair — Premium .hair domain for luxury hair & beauty" />
     <meta property="og:locale" content={SITE.locale} />
+    <meta property="og:price:amount" content={String(SITE.askingPrice)} />
+    <meta property="og:price:currency" content="USD" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -185,8 +169,6 @@ const structuredData = {
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
   <body>
     <slot />
